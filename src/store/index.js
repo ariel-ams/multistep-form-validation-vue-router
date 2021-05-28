@@ -44,11 +44,11 @@ const store = new Vuex.Store({
         },
         callApiSegundaLista(state){
             axios.get(
-                'http://dataservice.accuweather.com/locations/v1/countries/' + state.primerDato+
+                'http://dataservice.accuweather.com/locations/v1/countries/' + state.primerDato.ID +
                 '?apikey=' + apikey + '&language=es-ar')
                             .then(response => {
-                                state.primeraLista = response.data.map(region => {
-                                    return region;
+                                state.segundaLista = response.data.map(country => {
+                                    return country;
                                 })
                             })
                             .catch(error =>{

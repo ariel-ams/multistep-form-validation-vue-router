@@ -3,7 +3,8 @@
       <div>
           <select v-model="currentValue" @change="updateSegundoDato">
               <option :value="null">Seleccionar dato 2</option>
-              <option :value="item" v-for="(item, i) in getSegundaLista" :key="i">{{ item }}</option>
+              <option :value="item" v-for="item in getSegundaLista"
+               :key="item.ID">{{ item.LocalizedName }}</option>
           </select>
       </div>
 
