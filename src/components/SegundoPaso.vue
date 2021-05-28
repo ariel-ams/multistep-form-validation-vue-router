@@ -1,9 +1,9 @@
 <template>
   <div>
       <div>
-          <select v-model="currentValue" @change="updatePrimerDato">
-              <option :value="null">Seleccionar dato 1</option>
-              <option :value="item" v-for="(item, i) in getPrimeraLista" :key="i">{{ item }}</option>
+          <select v-model="currentValue" @change="updateSegundoDato">
+              <option :value="null">Seleccionar dato 2</option>
+              <option :value="item" v-for="(item, i) in getSegundaLista" :key="i">{{ item }}</option>
           </select>
       </div>
 
@@ -23,25 +23,25 @@ export default {
         }
     },
     created(){
-        this.fetchPrimeraLista();
+        this.fetchSegundaLista();
     },
     computed:{
         ...mapGetters([
-            'getPrimeraLista'
+            'getSegundaLista'
         ])
     },
     methods:{
         ...mapActions([
-            'fetchPrimeraLista'
+            'fetchSegundaLista'
         ]),
         ...mapMutations([
-            'setPrimerDato'
+            'setSegundoDato'
         ]),
-        updatePrimerDato(){
-            this.setPrimerDato(this.currentValue);
+        updateSegundoDato(){
+            this.setSegundoDato(this.currentValue);
         },
         irAlSiguientePaso(){
-            this.$router.push('/paso-2');
+            this.$router.push('/resultado');
         }
     }
 }

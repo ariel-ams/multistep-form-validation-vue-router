@@ -6,7 +6,9 @@ Vue.use(Vuex);
 const store = new Vuex.Store({
     state: {
         primerDato: null,
-        primeraLista: []
+        segundoDato: null,
+        primeraLista: [],
+        segundaLista: [],
     },
     getters: {
         getPrimerDato(state){
@@ -14,7 +16,13 @@ const store = new Vuex.Store({
         },
         getPrimeraLista(state){
             return state.primeraLista;
-        }
+        },
+        getSegundoDato(state){
+            return state.segundoDato;
+        },
+        getSegundaLista(state){
+            return state.segundaLista;
+        },
     },
     mutations: {
         callApiPrimeraLista(state){
@@ -25,14 +33,28 @@ const store = new Vuex.Store({
                 'Pais 4',
             ];
         },
+        callApiSegundaLista(state){
+            state.segundaLista = [
+                'Provincia 1',
+                'Provincia 2',
+                'Provincia 3',
+                'Provincia 4',
+            ];
+        },
         setPrimerDato(state, value){
             state.primerDato = value;
-        }
+        },
+        setSegundoDato(state, value){
+            state.segundoDato = value;
+        },
     },
     actions: {
         fetchPrimeraLista(context){
             context.commit('callApiPrimeraLista');
-        }
+        },
+        fetchSegundaLista(context){
+            context.commit('callApiSegundaLista');
+        },
     }
 });
 
