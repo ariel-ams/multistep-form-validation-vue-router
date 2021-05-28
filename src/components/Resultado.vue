@@ -1,12 +1,32 @@
 <template>
   <div>
-      Soy el resultado
+      <div>
+          primer dato: <strong>{{ primerDato }}</strong>
+      </div>
+      <div>
+          segundo dato: <strong>{{ segundoDato }}</strong>
+      </div>
+      <div>
+          <button @click="reiniciar">Reiniciar</button>
+      </div>
   </div>
 </template>
 
 <script>
-export default {
+import { mapGetters } from 'vuex';
 
+export default {
+    methods:{
+        reiniciar(){
+            this.$route.push('/');
+        }
+    },
+    computed:{
+        ...mapGetters([
+            'primerDato',
+            'segundoDato'
+        ])
+    }
 }
 </script>
 
