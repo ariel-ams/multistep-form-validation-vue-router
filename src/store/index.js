@@ -24,6 +24,9 @@ const store = new Vuex.Store({
                 'Pais 3',
                 'Pais 4',
             ];
+        },
+        setPrimerDato(state, value){
+            state.primerDato = value;
         }
     },
     actions: {
