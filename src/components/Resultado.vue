@@ -1,10 +1,10 @@
 <template>
   <div>
       <div>
-          primer dato: <strong>{{ primerDato }}</strong>
+          primer dato: <strong>{{ getPrimerDato.LocalizedName }}</strong>
       </div>
       <div>
-          segundo dato: <strong>{{ segundoDato }}</strong>
+          segundo dato: <strong>{{ getSegundoDato.LocalizedName }}</strong>
       </div>
       <div>
           <button @click="reiniciar">Reiniciar</button>
@@ -18,13 +18,13 @@ import { mapGetters } from 'vuex';
 export default {
     methods:{
         reiniciar(){
-            this.$route.push('/');
+            this.$router.push('/');
         }
     },
     computed:{
         ...mapGetters([
-            'primerDato',
-            'segundoDato'
+            'getPrimerDato',
+            'getSegundoDato'
         ])
     }
 }

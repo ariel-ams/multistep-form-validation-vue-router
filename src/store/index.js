@@ -28,11 +28,15 @@ const store = new Vuex.Store({
         },
     },
     mutations: {
+        reiniciar(state){
+            state.primerDato = null;
+            state.segundoDato = null;
+        },
         callApiPrimeraLista(state){
 
             axios.get(
-    'http://dataservice.accuweather.com/locations/v1/' +
-    'regions?apikey=' + apikey + '&language=es-ar')
+                'http://dataservice.accuweather.com/locations/v1/' +
+                'regions?apikey=' + apikey + '&language=es-ar')
                 .then(response => {
                     state.primeraLista = response.data.map(region => {
                         return region;
