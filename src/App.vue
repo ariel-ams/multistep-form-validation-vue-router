@@ -1,14 +1,23 @@
 <template>
   <div id="app">
-    <router-view></router-view>
+    <Loading v-if="getFetchingData"></Loading>
+    <router-view v-show="!getFetchingData"></router-view>
   </div>
 </template>
 
 <script>
+import Loading from './components/Loading'
+import { mapGetters } from 'vuex';
 
 export default {
   name: 'App',
   components: {
+    Loading
+  },
+  computed:{
+    ...mapGetters([
+      'getFetchingData'
+    ])
   }
 }
 </script>
